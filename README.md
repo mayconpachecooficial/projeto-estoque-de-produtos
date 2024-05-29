@@ -1,3 +1,8 @@
+DEPLOY:
+
+https://projeto-estoque-de-produtos.vercel.app/
+
+
 Projeto de Gestão de Estoque
 Este é um projeto de Gestão de Estoque desenvolvido utilizando Next.js, Chakra UI, MySQL, Express, CORS e React Icons. O sistema permite que os usuários se registrem, façam login e, uma vez autenticados, acessem um painel de controle para gerenciar o balanço de produtos, incluindo a adição, alteração e atualização de quantidades de produtos no banco de dados MySQL.
 
