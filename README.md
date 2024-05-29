@@ -24,8 +24,8 @@ Clone o repositório:
 
 bash
 Copiar código
-git clone https://github.com/seu-usuario/projeto-gestao-estoque.git
-cd projeto-gestao-estoque
+git clone (https://github.com/mayconpachecooficial/projeto-estoque-de-produtos)
+cd projeto-estoque-de-estoque
 Instale as dependências do projeto:
 
 bash
