@@ -1,3 +1,4 @@
+// Importações necessárias
 import {
   Avatar,
   Flex,
@@ -11,14 +12,18 @@ import React from "react";
 import { useSidebarContext } from "../contexts/SidebarContext";
 import { FiMenu } from "react-icons/fi";
 
+// Componente Header
 const Header = () => {
+  // Verificação do tipo de dispositivo
   const isMobile = useBreakpointValue({
     base: true,
     lg: false,
   });
 
+  // Extração da função onOpen do contexto
   const { onOpen } = useSidebarContext();
 
+  // Renderização do componente
   return (
     <Flex
       as="header"
@@ -33,6 +38,7 @@ const Header = () => {
       color="gray.500"
       fontWeight="bold"
     >
+      {/* // Renderização condicional do botão de menu para dispositivos móveis */}
       {isMobile && (
         <IconButton
           icon={<Icon as={FiMenu} />}
@@ -42,7 +48,9 @@ const Header = () => {
           mr="2"
         ></IconButton>
       )}
+      {/* // Texto do cabeçalho */}
       <Text>Dev Class</Text>
+      {/* // Área do usuário */}
       <Flex ml="auto">
         <HStack>
           <Text>Maycon Pacheco</Text>
@@ -53,4 +61,5 @@ const Header = () => {
   );
 };
 
+// Exportação do componente
 export default Header;

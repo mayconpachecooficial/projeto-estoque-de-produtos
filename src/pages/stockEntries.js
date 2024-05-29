@@ -1,3 +1,4 @@
+// Importando os componentes necessários
 import {
   Box,
   Button,
@@ -17,11 +18,13 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 
 const StockEntries = () => {
+  // Definindo os estados para a quantidade, id do produto, lista de entradas de estoque e lista de produtos
   const [amount, setAmount] = useState("");
   const [product_id, setProduct_id] = useState("0");
   const [listStockEntries, setStockEntries] = useState([]);
   const [listProducts, setListProducts] = useState([]);
 
+  // Carregando as entradas de estoque e produtos do localStorage quando o componente é montado
   useEffect(() => {
     const db_stock_entries = localStorage.getItem("db_stock_entries")
       ? JSON.parse(localStorage.getItem("db_stock_entries"))
@@ -36,6 +39,7 @@ const StockEntries = () => {
     setListProducts(db_products);
   }, []);
 
+  // Função para lidar com a criação de uma nova entrada de estoque
   const handleNewEntry = () => {
     if (!amount | (product_id === "0")) {
       return alert("Selecione o produto e a quantidade!");
@@ -63,6 +67,7 @@ const StockEntries = () => {
     setProduct_id("0");
   };
 
+  // Função para remover uma entrada de estoque
   const removeEntries = (id) => {
     const newArray = listStockEntries.filter((item) => item.id !== id);
 
@@ -71,10 +76,12 @@ const StockEntries = () => {
     setStockEntries(newArray);
   };
 
+  // Função para obter um produto pelo id
   const getProductById = (id) => {
     return listProducts.filter((item) => item.id === id)[0]?.name;
   };
 
+  // Renderizando o componente StockEntries
   return (
     <Flex h="100vh" flexDirection="column">
       <Header />

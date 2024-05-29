@@ -1,3 +1,4 @@
+// Importando componentes do Chakra UI, React e componentes personalizados
 import {
   Box,
   Button,
@@ -16,12 +17,15 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 
+// Componente StockOutputs
 const StockOutputs = () => {
+  // Definindo estados para quantidade, id do produto, lista de saídas de estoque e lista de produtos
   const [amount, setAmount] = useState("");
   const [product_id, setProduct_id] = useState("0");
   const [listStockOutputs, setStockOutputs] = useState([]);
   const [listProducts, setListProducts] = useState([]);
 
+  // Buscando dados de saídas de estoque e produtos do localStorage ao carregar o componente
   useEffect(() => {
     const db_stock_outputs = localStorage.getItem("db_stock_outputs")
       ? JSON.parse(localStorage.getItem("db_stock_outputs"))
@@ -36,6 +40,7 @@ const StockOutputs = () => {
     setListProducts(db_products);
   }, []);
 
+  // Função para adicionar uma nova saída de estoque
   const handleNewOutput = () => {
     if (!amount | (product_id === "0")) {
       return alert("Selecione o produto e a quantidade!");
@@ -63,6 +68,7 @@ const StockOutputs = () => {
     setProduct_id("0");
   };
 
+  // Função para remover uma saída de estoque
   const removeOutput = (id) => {
     const newArray = listStockOutputs.filter((item) => item.id !== id);
 
@@ -71,10 +77,12 @@ const StockOutputs = () => {
     setStockOutputs(newArray);
   };
 
+  // Função para obter um produto pelo id
   const getProductById = (id) => {
     return listProducts.filter((item) => item.id === id)[0]?.name;
   };
 
+  // Renderização do componente
   return (
     <Flex h="100vh" flexDirection="column">
       <Header />
@@ -149,4 +157,5 @@ const StockOutputs = () => {
   );
 };
 
+// Exportando o componente StockOutputs
 export default StockOutputs;
